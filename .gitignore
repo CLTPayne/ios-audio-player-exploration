@@ -1,0 +1,4 @@
+# Build directory
+/public
+/dist
+.DS_Store
