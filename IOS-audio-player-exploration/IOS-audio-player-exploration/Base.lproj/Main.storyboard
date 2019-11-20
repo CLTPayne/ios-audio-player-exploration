@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IOS_audio_player_exploration" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9Q-W9-q6z">
+                                <rect key="frame" x="38" y="88" width="343" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnv-nq-ONn">
+                                <rect key="frame" x="159" y="151" width="101" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X28-YP-Dnw">
+                                <rect key="frame" x="20" y="252" width="156" height="102"/>
+                                <state key="normal" title="Button" image="playpause.png"/>
+                                <connections>
+                                    <action selector="playOrPauseMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJv-zF-Rd3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJa-N5-IGa">
+                                <rect key="frame" x="310" y="251" width="156" height="102"/>
+                                <state key="normal" title="Button" image="stop.png"/>
+                                <connections>
+                                    <action selector="stopMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lCT-Oo-G1n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R9Q-W9-q6z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="5OA-UL-VsB"/>
+                            <constraint firstItem="bJa-N5-IGa" firstAttribute="leading" secondItem="X28-YP-Dnw" secondAttribute="trailing" constant="77" id="A8W-2t-jQD"/>
+                            <constraint firstItem="X28-YP-Dnw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Aan-x7-Ihp"/>
+                            <constraint firstItem="R9Q-W9-q6z" firstAttribute="centerX" secondItem="Tnv-nq-ONn" secondAttribute="centerX" id="I8H-8E-9rw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R9Q-W9-q6z" secondAttribute="trailing" constant="33" id="P7A-kM-ANw"/>
+                            <constraint firstItem="Tnv-nq-ONn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="159" id="haL-70-phR"/>
+                            <constraint firstItem="R9Q-W9-q6z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="kZP-u2-2Bb"/>
+                            <constraint firstItem="X28-YP-Dnw" firstAttribute="baseline" secondItem="bJa-N5-IGa" secondAttribute="baseline" id="nCu-kW-byW"/>
+                            <constraint firstItem="X28-YP-Dnw" firstAttribute="top" secondItem="Tnv-nq-ONn" secondAttribute="bottom" constant="65" id="oo9-uC-kwR"/>
+                            <constraint firstItem="Tnv-nq-ONn" firstAttribute="top" secondItem="R9Q-W9-q6z" secondAttribute="bottom" constant="46" id="otI-U1-7HT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="playedTime" destination="Tnv-nq-ONn" id="6UT-Vh-pDu"/>
+                        <outlet property="trackTitle" destination="R9Q-W9-q6z" id="0hA-sJ-3YX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="playpause.png" width="102" height="102"/>
+        <image name="stop.png" width="102" height="102"/>
+    </resources>
+</document>
