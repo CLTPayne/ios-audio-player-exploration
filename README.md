@@ -17,3 +17,5 @@ Simple iOS 13.2 app to try out a music player in iOS 13.2.
 
 -   How the AVAudioPlayer is instantiated in the tutorial does not work on iOS 13.2 / xcode 11.2.1.
 -   Issue with background mode will not surface in a simulator, therefore, as with a lot of iOS features need to build for a device.
+-   Tested on iOS 13.2 device and player seems to work as the timer increases, but can't hear audio. Found note online with someone saying they need headphones? Next step - use the debug area to step add break points in the ViewController and step through the variables to ensure the mp3 is correctly found. See debug area [docs](https://help.apple.com/xcode/mac/current/#/dev9de24d52b)
+-   For a audio via https (rather than an asset within the project) need an AVPlayer?
