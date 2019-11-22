@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVKit
+import MediaPlayer
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var isPlaying = false
     var timer: Timer!
     var player: AVPlayer!
+    var isPodcastPlaying = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,16 @@ class ViewController: UIViewController {
         } catch {
             print("Can't load audio 🤯 ", error)
         }
+        
+        guard let podcastUrl = URL(string: "https://stitcher.acast.com/livestitches/357679fe-f83a-4a36-9628-a2b49ddd2b29/567af75258700dc4d7db903653df6f12.mp3?aid=357679fe-f83a-4a36-9628-a2b49ddd2b29&chid=8e80ba05-2f15-4479-a6cc-b2f6635a1fe0&ci=dc925dea-16cb-4c5a-9faa-fc3f090af9f2&pf=rss&uid=ec3d110d853b28d2483f893f5d1aaece&Expires=1587339277&Signature=RWEM2fj8OhkWSkcZfcrfFLVOJM1ezjoyUUrk2AClt1kyaYG9JlS7Klp9fXSPsEJzffjGix4yV-iGZmWqq4OsxpmTi3WE3z1Ic6AieZJTIeaohdryS7OeXE5DxXAjvz3P5AHvakLtnUww70HdRv7TjY85FroYRVzqR%7EKwA0nZ8hTbhSR-RwjNhhPLToSD5Wl3tAda1EKUAhBoSrAtOwlREpfdb1KztS6NCX%7Ez4tA%7ENBDPzzN1WKAoEEwT5i6DZk8RCx1x33R5an%7EKcziviyUGPYbJwdvqsKpZoAJ9UiPP4lMPP40EOnMVyFZfQ1-Cg%7EYn7JHvbREACEl4LQe2-Y1uXg__&Key-Pair-Id=APKAJXAFARUOTJQ3BLOQ")
+        
+        else {
+                return
+        }
+        
+        self.setNowPlayingInfo()
+        self.player = AVPlayer(url: podcastUrl)
+        
     }
     
     @objc func updateTime() {
@@ -38,6 +49,16 @@ class ViewController: UIViewController {
         let seconds = currentTime - minutes * 60
         
         playedTime.text = String(format: "%02d:%02d", minutes, seconds) as String
+    }
+    
+    func setNowPlayingInfo() {
+        let nowPlayingInfoCentre = MPNowPlayingInfoCenter.default()
+        var nowPlayingInfo = nowPlayingInfoCentre.nowPlayingInfo ?? [String: Any]()
+        
+        let title = "titie"
+        let album = "album"
+        let artworkData = Data()
+        let image = UIImage(data: artworkData) ?? UIImage()
     }
 
     @IBOutlet weak var trackTitle: UILabel!
@@ -65,21 +86,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func playURL(_ sender: Any) {
-        guard let url = URL(string: "https://stitcher.acast.com/livestitches/357679fe-f83a-4a36-9628-a2b49ddd2b29/567af75258700dc4d7db903653df6f12.mp3?aid=357679fe-f83a-4a36-9628-a2b49ddd2b29&chid=8e80ba05-2f15-4479-a6cc-b2f6635a1fe0&ci=dc925dea-16cb-4c5a-9faa-fc3f090af9f2&pf=rss&uid=ec3d110d853b28d2483f893f5d1aaece&Expires=1587339277&Signature=RWEM2fj8OhkWSkcZfcrfFLVOJM1ezjoyUUrk2AClt1kyaYG9JlS7Klp9fXSPsEJzffjGix4yV-iGZmWqq4OsxpmTi3WE3z1Ic6AieZJTIeaohdryS7OeXE5DxXAjvz3P5AHvakLtnUww70HdRv7TjY85FroYRVzqR%7EKwA0nZ8hTbhSR-RwjNhhPLToSD5Wl3tAda1EKUAhBoSrAtOwlREpfdb1KztS6NCX%7Ez4tA%7ENBDPzzN1WKAoEEwT5i6DZk8RCx1x33R5an%7EKcziviyUGPYbJwdvqsKpZoAJ9UiPP4lMPP40EOnMVyFZfQ1-Cg%7EYn7JHvbREACEl4LQe2-Y1uXg__&Key-Pair-Id=APKAJXAFARUOTJQ3BLOQ")
-        
-        else {
-                return
+        if isPodcastPlaying {
+            self.player.pause()
+            isPodcastPlaying = false
+        } else {
+            self.player.play()
+            isPodcastPlaying = true
         }
         
-        let player = AVPlayer(url: url)
-        
-        let controller = AVPlayerViewController()
-        controller.player = player
-    
-        // Modally present the player and call the player's play() method when complete.
-        present(controller, animated: true) {
-           player.play()
-        }
     }
 }
 

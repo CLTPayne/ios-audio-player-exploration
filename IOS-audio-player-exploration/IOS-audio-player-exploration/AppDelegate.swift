@@ -21,9 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSession.Category.playback)
+            try audioSession.setActive(true)
         } catch {
             print ("Setting category to AVAudioSession failed: ", error)
         }
+        
+        application.beginReceivingRemoteControlEvents() 
         return true
     }
 

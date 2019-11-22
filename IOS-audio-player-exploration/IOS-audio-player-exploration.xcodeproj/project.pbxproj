@@ -16,6 +16,8 @@
 		AB44A4982385FD1100908903 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = AB44A4952385FD1100908903 /* stop.png */; };
 		AB44A4992385FD1100908903 /* playpause.png in Resources */ = {isa = PBXBuildFile; fileRef = AB44A4962385FD1100908903 /* playpause.png */; };
 		AB44A49A2385FD1100908903 /* Future Islands - Tin Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AB44A4972385FD1100908903 /* Future Islands - Tin Man.mp3 */; };
+		AB44A49D2387556B00908903 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB44A49C2387556B00908903 /* AVFoundation.framework */; };
+		AB44A49F2387557600908903 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB44A49E2387557600908903 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		AB44A4952385FD1100908903 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		AB44A4962385FD1100908903 /* playpause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playpause.png; sourceTree = "<group>"; };
 		AB44A4972385FD1100908903 /* Future Islands - Tin Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Future Islands - Tin Man.mp3"; sourceTree = "<group>"; };
+		AB44A49C2387556B00908903 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AB44A49E2387557600908903 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB44A49D2387556B00908903 /* AVFoundation.framework in Frameworks */,
+				AB44A49F2387557600908903 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +54,7 @@
 			children = (
 				AB44A4802385FC8900908903 /* IOS-audio-player-exploration */,
 				AB44A47F2385FC8900908903 /* Products */,
+				AB44A49B2387556A00908903 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +81,15 @@
 				AB44A48F2385FC8A00908903 /* Info.plist */,
 			);
 			path = "IOS-audio-player-exploration";
+			sourceTree = "<group>";
+		};
+		AB44A49B2387556A00908903 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB44A49E2387557600908903 /* UIKit.framework */,
+				AB44A49C2387556B00908903 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 57C72MNGGR;
 				INFOPLIST_FILE = "IOS-audio-player-exploration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -315,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 57C72MNGGR;
 				INFOPLIST_FILE = "IOS-audio-player-exploration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
