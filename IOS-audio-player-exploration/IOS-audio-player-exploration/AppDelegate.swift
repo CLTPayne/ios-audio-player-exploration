@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print ("Setting category to AVAudioSession failed: ", error)
         }
         
-        application.beginReceivingRemoteControlEvents() 
+        // Display nowplayinginfo on the notification screen
+        application.beginReceivingRemoteControlEvents()
+        
         return true
     }
 
