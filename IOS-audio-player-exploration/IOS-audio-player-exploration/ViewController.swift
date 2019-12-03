@@ -38,7 +38,9 @@ class ViewController: UIViewController {
                 return
         }
         
-        self.setNowPlayingInfo()
+        let title = "Podcast about politics"
+        
+        self.setNowPlayingInfo(title: title)
         self.player = AVPlayer(url: podcastUrl)
         
     }
@@ -51,16 +53,21 @@ class ViewController: UIViewController {
         playedTime.text = String(format: "%02d:%02d", minutes, seconds) as String
     }
     
-    func setNowPlayingInfo() {
-        let nowPlayingInfoCentre = MPNowPlayingInfoCenter.default()
-        var nowPlayingInfo = nowPlayingInfoCentre.nowPlayingInfo ?? [String: Any]()
+    // Populate the nowPlayingInfo dictionary with as many relevant details about the audio
+    @objc func setNowPlayingInfo(title: String) {
+        let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
+        var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
         
-        let title = "titie"
-        let album = "album"
         let artworkData = Data()
         let image = UIImage(data: artworkData) ?? UIImage()
-    }
+        let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_) -> UIImage in return image })
+        
+        nowPlayingInfo[MPMediaItemPropertyTitle] = title
+        nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
 
+        nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+    }
+    
     @IBOutlet weak var trackTitle: UILabel!
     
     @IBOutlet weak var playedTime: UILabel!
